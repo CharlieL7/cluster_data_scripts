@@ -1,15 +1,15 @@
 #!/bin/bash
 #
-#SBATCH --job-name=rsync_aoe_c2e_data
-#SBATCH --output=rsync_laoe_c2e.txt
+#SBATCH --job-name=rsync_job
+#SBATCH --output=rsync_job.txt
 #
 #SBATCH --account=vnarsim
 #SBATCH --ntasks=1
 #SBATCH --time=24:00:00
-#SBATCH --mem-per-cpu=100
+#SBATCH --mem-per-cpu=8192
 
-SCRATCH_DIR="/scratch/halstead/l/lin891/laoe_c2e/"
-DEPOT_DIR="/depot/vnarsim/data/lin_data/laoe_c2e_cont/"
+SCRATCH_DIR="/scratch/brown/lin891/laoe_visc1_De3/"
+DEPOT_DIR="/depot/vnarsim/data/lin_data/random_runs/"
 
 rsync --recursive ${SCRATCH_DIR}* ${DEPOT_DIR}
 if [ "$?" -eq "0" ]
