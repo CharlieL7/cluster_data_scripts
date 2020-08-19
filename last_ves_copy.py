@@ -15,10 +15,13 @@ def main():
     for c_folder in child_folders:
         file_list = glob.glob(c_folder + '/*.dat')
         file_list = sorted(file_list)
-        latest_file = file_list[-1]
-        print("latest_file = {0}".format(latest_file))
-        shutil.copy(latest_file, "{0}{1:02d}.dat".format(dest_folder, file_num))
-        file_num += 1
+        if file_list:
+            latest_file = file_list[-1]
+            print("latest_file = {0}".format(latest_file))
+            shutil.copy(latest_file, "{0}{1:02d}.dat".format(dest_folder, file_num))
+            file_num += 1
+        else:
+            print("empty file list for folder: {}".format(c_folder))
 
 if __name__ == "__main__":
     main()
