@@ -7,6 +7,7 @@ Uses the filenames, so does not read the files; significantly faster than readin
 import glob
 import os
 import argparse as argp
+from pathlib import Path
 from shutil import copy
 
 def main():
@@ -22,6 +23,7 @@ def main():
     in_dir = args.in_dir
     os.path.join(in_dir, '') # add ending slash if needed
     out_dir = args.out_dir
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
     file_list = sorted(glob.glob(in_dir + '*.dat'))
     for f in file_list:
         fn = os.path.basename(f)

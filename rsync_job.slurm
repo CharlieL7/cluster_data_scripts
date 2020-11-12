@@ -8,8 +8,8 @@
 #SBATCH --time=24:00:00
 #SBATCH --mem-per-cpu=8192
 
-SCRATCH_DIR="/scratch/brown/lin891/laoe_visc1_De3/"
-DEPOT_DIR="/depot/vnarsim/data/lin_data/random_runs/"
+SCRATCH_DIR="/scratch/brown/lin891/os_shear/"
+DEPOT_DIR="/depot/vnarsim/data/lin_data/os_shear/"
 
 rsync --recursive ${SCRATCH_DIR}* ${DEPOT_DIR}
 if [ "$?" -eq "0" ]
